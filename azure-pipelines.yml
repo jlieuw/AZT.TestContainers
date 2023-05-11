@@ -1,0 +1,66 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Build'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(solution)'
+    zipAfterPublish: false
+    
+- task: DotNetCoreCLI@2
+  displayName: 'XUnitDemo'
+  inputs:
+    command: 'test'
+    projects: '**/Testcontainers.XUnitDemo.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'SpecflowDemo'
+  inputs:
+    command: 'test'
+    projects: '**/TestContainers.SpecflowDemo.csproj'
+
+- task: SpecFlowPlus@0
+  displayName: 'Generate LivingDoc for TestContainers.SpecflowDemo'
+  inputs:
+      generatorSource: 'FeatureFolder'
+      projectFilePath: 'TestContainers.SpecflowDemo'
+      projectName: 'TestContainers.SpecflowDemo'
+      projectLanguage: 'en'
+      testExecutionJson: 'TestContainers.SpecflowDemo/**/TestExecution.json'
+      workItemPrefix: 'DEVOPS_WI:'
+      workItemUrlTemplate: 'https://dev.azure.com/XPRTZ/Azure%20Thursday/_workitems/edit/{id}'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Integrated Test'
+  inputs:
+    command: 'test'
+    projects: '**/TestContainers.IntegratedTest.csproj'
+
+- task: CopyFiles@2
+  condition: succeededOrFailed()
+  inputs:
+    Contents: '**/*.png'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  condition: succeededOrFailed()
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
