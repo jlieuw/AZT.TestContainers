@@ -17,5 +17,5 @@ In this talk we'll walk through why this is a problem, what testcontainers are a
 
 To run the solution please make sure to have installed:
 - Docker Desktop
-- .NET 7 SDK
+- .NET 8 SDK
 - Visual Studio 2022 (or later) or Visual Studio Code
