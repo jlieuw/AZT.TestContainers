@@ -28,7 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testcontainers.XUnitDemo", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{1114B1DB-259E-48C1-98E5-75D6ADBFFD65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestContainers.ApiApp", "TestContainers.ApiApp\TestContainers.ApiApp.csproj", "{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestContainers.ApiApp", "TestContainers.ApiApp\TestContainers.ApiApp.csproj", "{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestContainers.ApiApp.Tests", "TestContainers.ApiApp.Tests\TestContainers.ApiApp.Tests.csproj", "{C9911686-7B15-440B-BC78-3D1F08EF55E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,12 +70,17 @@ Global
 		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9911686-7B15-440B-BC78-3D1F08EF55E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9911686-7B15-440B-BC78-3D1F08EF55E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9911686-7B15-440B-BC78-3D1F08EF55E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9911686-7B15-440B-BC78-3D1F08EF55E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50} = {1114B1DB-259E-48C1-98E5-75D6ADBFFD65}
+		{C9911686-7B15-440B-BC78-3D1F08EF55E3} = {1114B1DB-259E-48C1-98E5-75D6ADBFFD65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6CC469F8-77C2-4624-8F2B-5A394011C344}
