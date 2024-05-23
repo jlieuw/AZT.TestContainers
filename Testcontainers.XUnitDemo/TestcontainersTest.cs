@@ -1,6 +1,5 @@
 namespace Testcontainers.XUnitDemo;
 
-using DotNet.Testcontainers.Builders;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Testcontainers.PostgreSql;
@@ -25,7 +24,7 @@ public class TestcontainersTest
 
         await container.StartAsync();
 
-        await container.CopyFileAsync("/tmp/db_backup.dump", await File.ReadAllBytesAsync("db_backup.dump"));
+        await container.CopyAsync(await File.ReadAllBytesAsync("db_backup.dump"), "/tmp/db_backup.dump");
 
         var command = "pg_restore --username=db_user --dbname=db -1 /tmp/db_backup.dump";
 

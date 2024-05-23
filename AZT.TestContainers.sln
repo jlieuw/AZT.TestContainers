@@ -26,6 +26,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestContainers.IntegratedTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testcontainers.XUnitDemo", "Testcontainers.XUnitDemo\Testcontainers.XUnitDemo.csproj", "{FA147689-1D87-49C5-BCA8-F04CD4B27EEA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{1114B1DB-259E-48C1-98E5-75D6ADBFFD65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestContainers.ApiApp", "TestContainers.ApiApp\TestContainers.ApiApp.csproj", "{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,9 +64,16 @@ Global
 		{FA147689-1D87-49C5-BCA8-F04CD4B27EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA147689-1D87-49C5-BCA8-F04CD4B27EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA147689-1D87-49C5-BCA8-F04CD4B27EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{059C3247-2AA0-4ABB-BA65-D1D43EF9CB50} = {1114B1DB-259E-48C1-98E5-75D6ADBFFD65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6CC469F8-77C2-4624-8F2B-5A394011C344}

@@ -1,0 +1,6 @@
+#@TestContainers.ApiApp_HostAddress = http://localhost:5034
+
+GET https://localhost:7133//employees/
+Accept: application/json
+
+###

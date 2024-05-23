@@ -102,7 +102,7 @@ public sealed class DemoAppContainer : HttpClient, IAsyncLifetime
 
     public async Task UseDatabaseBackup()
     {
-        await _postgresqlContainer.CopyFileAsync("/tmp/db_backup.dump", await File.ReadAllBytesAsync("Fixtures/db_backup.dump"));
+        await _postgresqlContainer.CopyAsync(await File.ReadAllBytesAsync("Fixtures/db_backup.dump"), "/tmp/db_backup.dump");
 
         var command = "pg_restore --username=db_user --dbname=db -1 /tmp/db_backup.dump";
 

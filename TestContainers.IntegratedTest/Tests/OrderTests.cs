@@ -46,7 +46,7 @@ public sealed class OrderTests : IClassFixture<DemoAppContainer>
         // Arrange
         static string ScreenshotFileName(string stepName) => $"{nameof(Get_Orders_Should_Return_626_Pages_Of_Orders)}_{stepName}_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}.png";
 
-        using var chromeService = ChromeDriverService.CreateDefaultService(_chromeOptions);
+        using var chromeService = ChromeDriverService.CreateDefaultService();
 
         chromeService.Port = 42559;
 

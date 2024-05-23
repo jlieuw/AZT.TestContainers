@@ -45,7 +45,7 @@ public sealed class AccountTests : IClassFixture<DemoAppContainer>
         // Arrange
         static string ScreenshotFileName(string stepName) => $"{nameof(Get_Accounts_Should_Return_100_Pages_Of_Accounts)}_{stepName}_{DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}.png";
 
-        using var chromeService = ChromeDriverService.CreateDefaultService(_chromeOptions);
+        using var chromeService = ChromeDriverService.CreateDefaultService();
 
         chromeService.Port = 42558;
 

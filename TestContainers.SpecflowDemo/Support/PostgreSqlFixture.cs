@@ -25,7 +25,7 @@ public sealed class PostgreSqlFixture : IAsyncLifetime
 
     public async Task UseBackupFile(byte[] backupFile)
     {
-        await Container.CopyFileAsync("/tmp/db_backup.dump", backupFile);
+        await Container.CopyAsync(backupFile, "/tmp/db_backup.dump");
 
         var command = "pg_restore --username=db_user --dbname=db -1 /tmp/db_backup.dump";
 
