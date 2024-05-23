@@ -1,16 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using TestContainers.ApiApp.Endpoints;
 using TestContainers.ApiApp.Infrastructure;
-using Testcontainers.MsSql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-        //Environment.SetEnvironmentVariable("DOCKER_HOST", "tcp://localhost:2375");
-var _msSqlContainer = new  MsSqlBuilder().Build();
-await _msSqlContainer.StartAsync();
+Environment.SetEnvironmentVariable("DOCKER_HOST", "tcp://localhost:2375");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(_msSqlContainer.GetConnectionString()));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Rest of your code...
 // Add services to the container.
